@@ -13,18 +13,20 @@ export default function Login({ onLogin }) {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen bg-gray-950">
-      <div className="bg-gray-900 rounded-2xl p-8 w-96 max-w-full shadow-lg border border-gray-800">
-        <div className="mb-4 text-center text-2xl font-bold">AislePilot Login</div>
+    <div className="flex flex-col justify-center items-center min-h-screen bg-gray-50">
+      <div className="bg-white rounded-2xl p-8 w-96 max-w-full shadow-lg border border-gray-200">
+        <div className="mb-4 text-center text-2xl font-bold text-gray-900">
+          AislePilot Login
+        </div>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <input
-            className="px-4 py-3 rounded bg-gray-800 border border-gray-700 focus:outline-none"
+            className="px-4 py-3 rounded bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-200"
             type="text"
             placeholder="Username"
             required
           />
           <input
-            className="px-4 py-3 rounded bg-gray-800 border border-gray-700 focus:outline-none"
+            className="px-4 py-3 rounded bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-200"
             type="password"
             placeholder="Password"
             required
@@ -41,3 +43,4 @@ export default function Login({ onLogin }) {
     </div>
   );
 }
+
