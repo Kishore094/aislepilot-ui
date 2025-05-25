@@ -1,81 +1,142 @@
 import React from "react";
 
-const cards = [
-  {
-    title: "Weather Impact",
-    value: "+4%",
-    desc: "Rainy weather is expected to increase demand compared to a sunny day"
-  },
-  {
-    title: "Seasonal Trends",
-    value: "-12%",
-    desc: "Sales are typically lower in summer than in winter"
-  },
-  {
-    title: "Predicted Demand",
-    value: "+18%",
-    desc: "Demand for soft drinks is expected to rise by 18%"
-  }
+const kpis = [
+  { label: "Sales", value: "£18,530", change: "+5.2%" },
+  { label: "Margin", value: "35.6%", change: "+1.1%" },
+  { label: "Alerts", value: "4", change: null },
+  { label: "Sales by", value: "Snack Bars", change: null }
 ];
 
-const suggested = [
-  { product: "Ice Cream Tubs", reason: "27°C forecast this week", qty: "+30 units" },
-  { product: "BBQ Chicken Wings", reason: "Bank Holiday + Sun", qty: "+10 units" },
-  { product: "Water Bottles", reason: "Rainy Days Expected", qty: "+15 units" }
+const bestSellers = [
+  { product: "Snack Bars", sales: "3,466", qty: "25" },
+  { product: "Orange Juice", sales: "2,289", qty: "9" },
+  { product: "Bagged Salad", sales: "2,390", qty: "3" },
+  { product: "Granola Bars", sales: "1,250", qty: "4" }
+];
+
+const slowMovers = [
+  { product: "Cooking Oil", qty: "256" },
+  { product: "Instant Oatmeal", qty: "256" },
+  { product: "Mustard", qty: "248" },
+  { product: "Bottled Water", qty: "229" }
+];
+
+const salesByCategory = [
+  { label: "Produce", value: 33, color: "bg-blue-500" },
+  { label: "Dairy", value: 20, color: "bg-indigo-500" },
+  { label: "Snacks", value: 31, color: "bg-orange-400" },
+  { label: "Other", value: 17, color: "bg-gray-400" }
+];
+
+const alerts = [
+  { type: "Low inventory", detail: "Orange Juice has low stock (25 units)", time: "2h ago", color: "text-red-500" },
+  { type: "Replenishment", detail: "Reorder Granola Bars soon", time: "1d ago", color: "text-blue-500" },
+  { type: "", detail: "Reorder Bagged Salad soon", time: "2d ago", color: "text-blue-500" }
 ];
 
 export default function Dashboard() {
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-3">Advanced Forecasts</h1>
-      <div className="flex gap-3 mb-6">
-        {["Weather Impact", "Seasonal Trends", "Holiday Stocking"].map(tab => (
-          <button
-            key={tab}
-            className="px-4 py-2 rounded-lg font-semibold mr-2
-              bg-blue-100 text-blue-800 dark:bg-gray-800 dark:text-blue-300
-              hover:bg-blue-200 dark:hover:bg-gray-700 transition"
-          >
-            {tab}
-          </button>
-        ))}
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-        {cards.map(card => (
-          <div key={card.title} className="rounded-xl bg-white dark:bg-gray-900 shadow p-6 border border-gray-200 dark:border-gray-800">
-            <div className="text-sm font-semibold mb-1 text-gray-500 dark:text-gray-400">{card.title}</div>
-            <div className="text-3xl font-bold mb-1 text-gray-900 dark:text-white">{card.value}</div>
-            <div className="text-gray-600 dark:text-gray-300 text-sm">{card.desc}</div>
+    <div className="p-2 md:p-6">
+      <h1 className="text-3xl font-bold mb-6 text-white dark:text-white">AislePilot</h1>
+      {/* KPI cards */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        {kpis.map((kpi, i) => (
+          <div key={i} className="bg-gray-900 dark:bg-gray-900 rounded-xl p-6 shadow flex flex-col justify-between">
+            <div className="text-xl font-bold text-white">{kpi.value}</div>
+            <div className="text-gray-400 text-sm">{kpi.label}</div>
+            {kpi.change && (
+              <div className="text-green-400 text-xs font-bold mt-1">{kpi.change}</div>
+            )}
           </div>
         ))}
       </div>
-      <div className="bg-white dark:bg-gray-900 rounded-xl shadow p-8 mb-6 border border-gray-200 dark:border-gray-800">
-        <div className="text-lg font-semibold mb-3 text-gray-800 dark:text-white">Weather-Based Forecast</div>
-        {/* Chart Placeholder */}
-        <div className="h-44 flex items-center justify-center bg-gray-100 dark:bg-gray-800 rounded mb-3">
-          <span className="text-gray-400 dark:text-gray-500">[Line chart placeholder: Rainy vs Sunny]</span>
+      {/* Main content */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        {/* Sales Trend */}
+        <div className="bg-gray-900 dark:bg-gray-900 rounded-xl p-6 shadow col-span-2">
+          <div className="text-white font-semibold mb-3">Sales Trend</div>
+          {/* Placeholder for line chart */}
+          <div className="h-40 flex items-center justify-center">
+            <span className="text-gray-500">[Line chart placeholder]</span>
+          </div>
+        </div>
+        {/* Sales by Category */}
+        <div className="bg-gray-900 dark:bg-gray-900 rounded-xl p-6 shadow">
+          <div className="text-white font-semibold mb-3">Sales by Category</div>
+          {/* Pie chart placeholder */}
+          <div className="flex justify-center mb-4">
+            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-500 via-indigo-500 to-orange-400 flex items-center justify-center text-xl text-white">
+              [Pie]
+            </div>
+          </div>
+          <ul className="text-sm">
+            {salesByCategory.map((cat, idx) => (
+              <li key={cat.label} className="flex items-center gap-2 mb-1">
+                <span className={`inline-block w-3 h-3 rounded-full ${cat.color}`}></span>
+                <span className="text-white">{cat.label}</span>
+                <span className="ml-auto text-gray-400">{cat.value}%</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-      <div className="bg-white dark:bg-gray-900 rounded-xl shadow p-8 border border-gray-200 dark:border-gray-800">
-        <div className="text-lg font-semibold mb-3 text-gray-800 dark:text-white">Suggested Stocking Plan</div>
-        <table className="w-full text-left">
-          <thead>
-            <tr className="border-b border-gray-200 dark:border-gray-700">
-              <th className="py-2 pr-4 font-semibold">Product</th>
-              <th className="py-2 pr-4 font-semibold">Reason</th>
-              <th className="py-2 pr-4 font-semibold">Suggested Qty</th>
-            </tr>
-          </thead>
-          <tbody>
-            {suggested.map(item => (
-              <tr key={item.product} className="border-b border-gray-100 dark:border-gray-800">
-                <td className="py-2 pr-4">{item.product}</td>
-                <td className="py-2 pr-4">{item.reason}</td>
-                <td className="py-2 pr-4">{item.qty}</td>
+      {/* Lower Section */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Best Sellers */}
+        <div className="bg-gray-900 dark:bg-gray-900 rounded-xl p-6 shadow">
+          <div className="text-white font-semibold mb-3">Best Sellers</div>
+          <table className="w-full text-left text-white text-sm">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Sales</th>
+                <th>Qty.</th>
               </tr>
+            </thead>
+            <tbody>
+              {bestSellers.map((item, idx) => (
+                <tr key={item.product}>
+                  <td>{item.product}</td>
+                  <td>{item.sales}</td>
+                  <td>{item.qty}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        {/* Slow Movers */}
+        <div className="bg-gray-900 dark:bg-gray-900 rounded-xl p-6 shadow">
+          <div className="text-white font-semibold mb-3">Slow Movers</div>
+          <table className="w-full text-left text-white text-sm">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+              {slowMovers.map(item => (
+                <tr key={item.product}>
+                  <td>{item.product}</td>
+                  <td>{item.qty}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        {/* Alerts */}
+        <div className="bg-gray-900 dark:bg-gray-900 rounded-xl p-6 shadow">
+          <div className="text-white font-semibold mb-3">Alerts</div>
+          <ul>
+            {alerts.map((alert, idx) => (
+              <li key={idx} className="mb-2">
+                <span className={`font-semibold ${alert.color}`}>{alert.type} </span>
+                <span className="text-white">{alert.detail}</span>
+                <span className="block text-gray-500 text-xs ml-4">{alert.time}</span>
+              </li>
             ))}
-          </tbody>
-        </table>
+          </ul>
+        </div>
       </div>
     </div>
   );
