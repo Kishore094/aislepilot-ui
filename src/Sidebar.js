@@ -17,13 +17,8 @@ const tabs = [
 
 export default function Sidebar({ tab, setTab, theme, setTheme }) {
   return (
-    <aside
-      className={`w-64 min-h-screen border-r flex flex-col
-        ${theme === "dark"
-          ? "bg-gray-900 border-gray-800 text-gray-100"
-          : "bg-gray-50 border-gray-200 text-gray-900"}
-      `}
-    >
+    <aside className={`w-64 min-h-screen border-r flex flex-col
+      bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-800`}>
       <div className="flex items-center p-6 text-2xl font-bold gap-2 tracking-wide">
         <span role="img" aria-label="logo">🛒</span>
         AislePilot
@@ -35,12 +30,8 @@ export default function Sidebar({ tab, setTab, theme, setTheme }) {
             className={`
               flex items-center gap-3 px-6 py-3 text-base transition rounded-l-full
               ${tab === t.label
-                ? theme === "dark"
-                  ? "bg-gray-800 font-semibold"
-                  : "bg-blue-100 text-blue-800 font-semibold"
-                : theme === "dark"
-                  ? "hover:bg-gray-800/60"
-                  : "hover:bg-gray-100"}
+                ? "bg-blue-100 text-blue-900 dark:bg-gray-800 dark:text-blue-200 font-semibold"
+                : "text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-800"}
             `}
             onClick={() => setTab(t.label)}
           >
