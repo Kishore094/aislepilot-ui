@@ -3,6 +3,7 @@ import Sidebar from "./Sidebar";
 import Dashboard from "./pages/Dashboard";
 import Inventory from "./pages/Inventory";
 import Forecasts from "./pages/Forecasts";
+import AdvancedForecasts from "./pages/AdvancedForecasts";
 import Settings from "./pages/Settings";
 import Login from "./pages/Login";
 
@@ -34,7 +35,7 @@ export default function App() {
       Page = <Forecasts />;
       break;
     case "Advanced Forecasts":
-      Page = <div className="p-10">Advanced Forecasts Coming Soon</div>;
+      Page = <AdvancedForecasts />;
       break;
     case "Promotions":
       Page = <div className="p-10">Promotions Page Coming Soon</div>;
