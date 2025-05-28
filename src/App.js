@@ -6,6 +6,7 @@ import Forecasts from "./pages/Forecasts";
 import AdvancedForecasts from "./pages/AdvancedForecasts";
 import Settings from "./pages/Settings";
 import Login from "./pages/Login";
+import Promotions from "./pages/Promotions";
 
 function getStoredTheme() {
   return localStorage.getItem("aislepilot-theme") || "light";
