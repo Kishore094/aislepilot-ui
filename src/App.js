@@ -6,7 +6,7 @@ import Forecasts from "./pages/Forecasts";
 import AdvancedForecasts from "./pages/AdvancedForecasts";
 import Settings from "./pages/Settings";
 import Login from "./pages/Login";
-import Promotions from "./pages/Promotions";
+import Promotions from "./pages/Promotions"; // ✅ NEWLY WIRED
 
 function getStoredTheme() {
   return localStorage.getItem("aislepilot-theme") || "light";
@@ -39,7 +39,7 @@ export default function App() {
       Page = <AdvancedForecasts />;
       break;
     case "Promotions":
-      Page = <div className="p-10">Promotions Page Coming Soon</div>;
+      Page = <Promotions />; // ✅ INSERTED YOUR PROMOTIONS COMPONENT
       break;
     case "Product Performance":
       Page = <div className="p-10">Product Performance Page Coming Soon</div>;
@@ -67,7 +67,13 @@ export default function App() {
   }
 
   return (
-    <div className={theme === "dark" ? "bg-gray-950 text-gray-50 flex min-h-screen" : "bg-gray-50 text-gray-900 flex min-h-screen"}>
+    <div
+      className={
+        theme === "dark"
+          ? "bg-gray-950 text-gray-50 flex min-h-screen"
+          : "bg-gray-50 text-gray-900 flex min-h-screen"
+      }
+    >
       <Sidebar tab={tab} setTab={setTab} theme={theme} setTheme={setTheme} />
       <main className="flex-1 p-8">{Page}</main>
     </div>
