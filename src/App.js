@@ -43,7 +43,7 @@ export default function App() {
       Page = <Promotions />; // ✅ INSERTED YOUR PROMOTIONS COMPONENT
       break;
     case "Product Performance":
-      Page = <div className="p-10">Product Performance Page Coming Soon</div>;
+      Page = <ProductPerformance />;
       break;
     case "Alerts / Notifications":
       Page = <div className="p-10">Alerts / Notifications Page Coming Soon</div>;
