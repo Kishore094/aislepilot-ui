@@ -7,6 +7,7 @@ import AdvancedForecasts from "./pages/AdvancedForecasts";
 import Settings from "./pages/Settings";
 import Login from "./pages/Login";
 import Promotions from "./pages/Promotions"; // ✅ NEWLY WIRED
+import ProductPerformance from "./pages/ProductPerformance";
 
 function getStoredTheme() {
   return localStorage.getItem("aislepilot-theme") || "light";
