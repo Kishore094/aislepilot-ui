@@ -1,18 +1,4 @@
 import React from "react";
-import {
-  ResponsiveContainer,
-  Tooltip,
-} from "recharts";
-
-const heatmapData = [
-  { day: "Mon", CocaCola: 35, Walkers: 48, BenJerry: 25 },
-  { day: "Tue", CocaCola: 42, Walkers: 50, BenJerry: 30 },
-  { day: "Wed", CocaCola: 25, Walkers: 45, BenJerry: 18 },
-  { day: "Thu", CocaCola: 38, Walkers: 55, BenJerry: 20 },
-  { day: "Fri", CocaCola: 52, Walkers: 60, BenJerry: 32 },
-  { day: "Sat", CocaCola: 75, Walkers: 80, BenJerry: 40 },
-  { day: "Sun", CocaCola: 60, Walkers: 70, BenJerry: 35 },
-];
 
 const performanceData = [
   {
@@ -112,7 +98,7 @@ export default function ProductPerformance() {
         </div>
       </div>
 
-      {/* Replaced Sales Trend with Insight Highlights */}
+      {/* Insight Highlights */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="bg-yellow-100 dark:bg-yellow-800 p-4 rounded shadow">
           <h3 className="font-semibold text-lg">📉 Most Declined</h3>
