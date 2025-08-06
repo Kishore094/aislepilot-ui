@@ -8,6 +8,7 @@ import Settings from "./pages/Settings";
 import Login from "./pages/Login";
 import Promotions from "./pages/Promotions"; // ✅ NEWLY WIRED
 import ProductPerformance from "./pages/ProductPerformance";
+import Alerts from './pages/Alerts';
 
 function getStoredTheme() {
   return localStorage.getItem("aislepilot-theme") || "light";
